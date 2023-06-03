@@ -1,0 +1,135 @@
+Burden Section:
+Prevalence: 40
+- Text: LEP
+  Average Value: 0.00162183530798462
+- Text: PCSK1
+  Average Value: 0.00153929618129831
+- Text: LEPR
+  Average Value: 0.00802940878554623
+- Text: POMC
+  Average Value: 0.0171669073360271
+- Text: MC4R
+  Average Value: 7.66990143370022e-05
+- Text: SIM1
+  Average Value: 0.800047806185886
+- Text: NTRK2
+  Average Value: 0.398751594982113
+- Text: SH2B1
+  Average Value: 0.192473411082238
+- Text: KSR2
+  Average Value: 0.60861511815909
+- Text: ADCY3
+  Average Value: 0.0179148367124723
+
+Prevalence: 50
+- Text: LEP
+  Average Value: 0.00162183530798461
+- Text: PCSK1
+  Average Value: 0.00154296619431742
+- Text: LEPR
+  Average Value: 0.00808524098916089
+- Text: POMC
+  Average Value: 0.0171669073360271
+- Text: MC4R
+  Average Value: 7.68666830845355e-05
+- Text: SIM1
+  Average Value: 0.800047806185887
+- Text: NTRK2
+  Average Value: 0.399183086782013
+- Text: SH2B1
+  Average Value: 0.192386606000643
+- Text: KSR2
+  Average Value: 0.60861511815909
+- Text: ADCY3
+  Average Value: 0.0177697653541272
+
+SKAT Section:
+Prevalence: 40
+- Text: LEP
+  Average Value: 0.00162183530798462
+- Text: PCSK1
+  Average Value: 0.010805286580176
+- Text: LEPR
+  Average Value: 0.00552515170416767
+- Text: POMC
+  Average Value: 0.0470973691643064
+- Text: MC4R
+  Average Value: 0.00160416750533066
+- Text: SIM1
+  Average Value: 0.800047806185886
+- Text: NTRK2
+  Average Value: 0.468264636040556
+- Text: SH2B1
+  Average Value: 0.722783113542832
+- Text: KSR2
+  Average Value: 0.88028204723085
+- Text: ADCY3
+  Average Value: 0.0414939545914232
+
+Prevalence: 50
+- Text: LEP
+  Average Value: 0.00162183530798461
+- Text: PCSK1
+  Average Value: 0.0108099320865154
+- Text: LEPR
+  Average Value: 0.00550244337916861
+- Text: POMC
+  Average Value: 0.0470973691643064
+- Text: MC4R
+  Average Value: 0.00159052988925446
+- Text: SIM1
+  Average Value: 0.800047806185887
+- Text: NTRK2
+  Average Value: 0.468485399222215
+- Text: SH2B1
+  Average Value: 0.722659216588499
+- Text: KSR2
+  Average Value: 0.88028204723085
+- Text: ADCY3
+  Average Value: 0.0410041747148141
+
+SKATO Section:
+Prevalence: 40
+- Text: LEP
+  Average Value: 0.00162183530798462
+- Text: PCSK1
+  Average Value: 0.00240785679292943
+- Text: LEPR
+  Average Value: 0.00613362845969556
+- Text: POMC
+  Average Value: 0.0249700727264776
+- Text: MC4R
+  Average Value: 0.000145263095306603
+- Text: SIM1
+  Average Value: 0.800047806185886
+- Text: NTRK2
+  Average Value: 0.575866966201884
+- Text: SH2B1
+  Average Value: 0.301238183607803
+- Text: KSR2
+  Average Value: 0.806005836415814
+- Text: ADCY3
+  Average Value: 0.0270568050418143
+
+Prevalence: 50
+- Text: LEP
+  Average Value: 0.00162183530798461
+- Text: PCSK1
+  Average Value: 0.00241575830779728
+- Text: LEPR
+  Average Value: 0.00612267594332938
+- Text: POMC
+  Average Value: 0.0249700727264845
+- Text: MC4R
+  Average Value: 0.000146151018026286
+- Text: SIM1
+  Average Value: 0.800047806185887
+- Text: NTRK2
+  Average Value: 0.576403034472586
+- Text: SH2B1
+  Average Value: 0.301108833437714
+- Text: KSR2
+  Average Value: 0.806005836415814
+- Text: ADCY3
+  Average Value: 0.0266956229175093
+
