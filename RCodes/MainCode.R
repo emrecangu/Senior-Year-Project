@@ -8,7 +8,7 @@ File.SSD <- "Path/to/.SSD"
 File.Info <- "Path/to/.SSD.info"
 File.Kin <- "Path/to/emmax.hBN.kinf"
 Generate_SSD_SetID(File.Bed, File.Bim, File.Fam, File.SetID, File.SSD, File.Info, Is.FlipGenotype=TRUE)
-SSD.INFOX50k <- Open_SSD(File.SSD, File.Info)
+SSD.INFO <- Open_SSD(File.SSD, File.Info)
 FAM<-Read_Plink_FAM(File.Fam, Is.binary=TRUE, flag1=0)
 y <- FAM$Phenotype
 
@@ -17,7 +17,7 @@ obj <- SKAT_Null_Model(formula, data=NULL, out_type="D", n.Resampling=0
                             , type.Resampling="bootstrap", Adjustment=TRUE)
 
 ## Run the code below for non-kinship 
-out.skat <- SKAT.SSD.All(SSD.INFO70k, obj, kernel = "linear or linear.weighted", 
+out.skat <- SKAT.SSD.All(SSD.INFO, obj, kernel = "linear or linear.weighted", 
                          method="Burden, SKAT and SKATO", weights.beta=c(1,25 or 40 or 50), weights=NULL, 
                          impute.method="bestguess or random or fixed", r.corr=0, is_check_genotype=TRUE,
                          is_dosage = FALSE, missing_cutoff=1 , max_maf=1, estimate_MAF=1)
@@ -27,7 +27,7 @@ objx <- SKAT_NULL_emmaX (y ~ 1, data=NULL, K=NULL, Kin.File=File.Kin, ngrids=100
                          llim=-10, ulim=10, esp=1e-10, Is.GetEigenResult=FALSE)
 
 ## Run the code below if kinship file is used
-out.skato.emmax <- SKAT.SSD.All(SSD.INFOX50k, objx, kernel = "linear.weighted",
+out.skato.emmax <- SKAT.SSD.All(SSD.INFO, objx, kernel = "linear.weighted",
                                 method="SKATO", weights.beta=c(1,40),
                                 weights=NULL, impute.method="bestguess", r.corr=0,
                                 is_check_genotype=TRUE, is_dosage = FALSE, missing_cutoff=1)
