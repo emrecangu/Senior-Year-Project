@@ -1,0 +1,100 @@
+Excel Data Search and Analysis Documentation
+This documentation provides an overview and explanation of the Python code that searches through Excel files, performs data analysis, and generates visualizations based on the extracted information. The code is designed to process a specified directory of Excel files, extract relevant data, and produce output files for further analysis.
+
+Table of Contents
+Introduction
+Dependencies
+Input Data
+Search and Extraction
+Classification and Aggregation
+Output Generation
+Bar Plot Generation
+Logarithmic Conversion
+Conclusion
+1. Introduction
+The code aims to automate the search and analysis of data within Excel files. It performs the following steps:
+
+Searches for Excel files in a specified directory.
+Reads the Excel files and extracts relevant data.
+Classifies the extracted data based on specific conditions.
+Aggregates the data based on the classification.
+Generates output files (text file and Excel file) for further analysis.
+Generates bar plots to visualize the extracted data.
+Converts the data values to logarithmic scale.
+Generates bar plots for the converted data.
+Outputs a success message upon completion.
+2. Dependencies
+The code requires the following dependencies:
+
+os: Provides a way to interact with the operating system, used for file and directory operations.
+pandas: A data manipulation library used for reading and analyzing Excel files.
+xlsxwriter: A library for creating Excel files.
+matplotlib: A plotting library used for generating bar plots.
+math: A library providing mathematical functions.
+numpy: A library used for mathematical operations on arrays.
+tqdm: A library for creating progress bars during the execution of loops.
+Ensure that these dependencies are installed before running the code.
+
+3. Input Data
+The code expects the following input:
+
+texts_to_search: A list of texts to search for within the Excel files.
+directory_path: The path to the directory containing the Excel files.
+Make sure to update these variables according to your specific use case before running the code.
+
+4. Search and Extraction
+The function search_excel_files(texts, directory) is responsible for searching the Excel files within the specified directory and extracting relevant data. It utilizes the os and pandas libraries to read the Excel files and search for specific columns.
+
+For each Excel file found, the function performs the following steps:
+
+Attempts to read the Excel file using pd.read_excel().
+Checks if the required columns, "SetID" and "P.value," are present in the DataFrame.
+Searches for each text in the "SetID" column using boolean masking.
+Retrieves the corresponding P.values from the "P.value" column.
+Appends the results to the results dictionary.
+The function returns the results dictionary containing the extracted data.
+
+5. Classification and Aggregation
+The code further processes the extracted data by classifying it based on specific conditions and aggregating it for analysis.
+
+The classification process involves categorizing the data based on the file names. The code identifies three sections: "Burden," "SKAT," and "SKATO." Each section is further categorized based on the prevalence values present in the file names: 25, 40, and 50. The classification information is stored in the classification dictionary.
+
+For each file in the results dictionary, the code performs the following steps:
+
+Checks the file name for keywords ("Burden," "SKAT," or "SKATO") to determine the section.
+Determines the prevalence value based on the keywords ("25," "40," or "50").
+Checks if the section and prevalence are valid.
+Creates the necessary nested dictionaries and lists to store the data.
+The extracted data is then grouped and aggregated in the classification dictionary.
+
+6. Output Generation
+The code generates two types of output files: a text file and an Excel file.
+
+The text file contains the aggregated data, including the section, prevalence, text, and average value. The data is formatted and written to the file using the write() method.
+
+The Excel file utilizes the xlsxwriter library to create worksheets and populate them with the extracted data. For each section and prevalence in the classification dictionary, a new worksheet is created. The data is written to the worksheets using the write() and write_column() methods.
+
+Both output files are saved to the specified directory using the provided file paths.
+
+7. Bar Plot Generation
+The code generates bar plots to visualize the extracted data. It utilizes the matplotlib library to create the plots.
+
+For each section and prevalence in the classification dictionary, a bar plot is generated. The title of the plot is set based on the section and prevalence. The bar plot is created using the plt.bar() function, with the texts as the x-axis values and the averages as the y-axis values.
+
+The bar plots are customized with labels, legends, and axis limits. Each plot is saved as an image file with the section, prevalence, and other relevant information in the file name.
+
+8. Logarithmic Conversion
+The code performs a logarithmic conversion on the extracted data. It converts the values to the logarithmic scale using the math.log10() function and takes the absolute values.
+
+The converted data is then written to a new Excel file using the xlsxwriter library. Similar to the previous Excel file generation, the data is written to worksheets with the converted values.
+
+9. Conclusion
+The provided Python code enables the search, extraction, analysis, and visualization of data within Excel files. It offers flexibility for customization based on specific requirements.
+
+To use the code, ensure that the input data, dependencies, and file paths are correctly specified. Run the code in a Python environment with the necessary dependencies installed.
+
+After executing the code, check the specified directory for the generated output files: a text file, an Excel file, and bar plot images. The files contain the extracted data, aggregated information, and visualizations for further analysis.
+
+Please note that the code provided assumes certain file structures, naming conventions, and data formats. Modify the code as needed to suit your specific use case.
+
+For any further assistance, please consult the code's author or refer to relevant documentation for the used libraries
