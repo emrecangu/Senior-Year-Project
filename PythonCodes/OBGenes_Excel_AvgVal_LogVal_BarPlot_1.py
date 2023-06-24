@@ -6,9 +6,9 @@ import math
 import numpy as np
 from tqdm import tqdm  # Import tqdm for the progress bar
 
-# Example usage
+# Example usage, to search for texts, change the list
 texts_to_search = ["LEP", "PCSK1", "LEPR", "POMC", "MC4R", "SIM1", "NTRK2", "SH2B1", "KSR2", "ADCY3"]
-directory_path = "C:/Users/emrec/Desktop/emretez"
+directory_path = "Path/to/Files"
 
 
 def search_excel_files(texts, directory):
@@ -109,7 +109,7 @@ for filename, text_results in results.items():
             results[filename].append((text, [average]))
 
 # Save results to a text file
-text_file_path = os.path.join(os.path.expanduser("~"), "Desktop", "emretez2", "results.txt")
+text_file_path = os.path.join(os.path.expanduser("~"), "Writing", "Path", "results.txt")
 with open(text_file_path, "w") as file:
     for section, prevalence_results in classification.items():
         file.write(f"{section} Section:\n")
@@ -122,7 +122,7 @@ with open(text_file_path, "w") as file:
             file.write("\n")
 
 # Save results to an Excel file
-excel_file_path = os.path.join(os.path.expanduser("~"), "Desktop", "emretez2", "results.xlsx")
+excel_file_path = os.path.join(os.path.expanduser("~"), "Writing", "Path", "results.xlsx")
 workbook = xlsxwriter.Workbook(excel_file_path)
 for section, prevalence_results in tqdm(classification.items(), desc="Saving results to Excel"):
     for prevalence, text_results in prevalence_results.items():
@@ -168,12 +168,12 @@ for section, prevalence_results in tqdm(classification.items(), desc="Generating
         plt.yticks([i * 0.1 for i in range(11)])
 
         # Save the bar plot as an image with prevalence in the file name
-        plot_file_path = os.path.join(os.path.expanduser("~"), "Desktop", "emretez2", f"{bar_plot_title}_BarPlot_{prevalence}_1.png")
+        plot_file_path = os.path.join(os.path.expanduser("~"), "Writing", "Path", f"{bar_plot_title}_BarPlot_{prevalence}_1.png")
         plt.savefig(plot_file_path)
         plt.close()
 
 # Convert values in the results.xlsx file to log10 and take the absolute values
-converted_file_path = os.path.join(os.path.expanduser("~"), "Desktop", "emretez2", "converted_results.xlsx")
+converted_file_path = os.path.join(os.path.expanduser("~"), "Writing", "Path", "converted_results.xlsx")
 converted_workbook = xlsxwriter.Workbook(converted_file_path)
 
 for section, prevalence_results in classification.items():
@@ -230,7 +230,7 @@ for section, prevalence_results in classification.items():
         plt.yticks([i * 1 for i in range(7)])
 
         # Save the bar plot as an image with prevalence in the file name
-        plot_file_path = os.path.join(os.path.expanduser("~"), "Desktop", "emretez2", f"{bar_plot_title}_BarPlot_{prevalence}_Converted.png")
+        plot_file_path = os.path.join(os.path.expanduser("~"), "Writing", "Path", f"{bar_plot_title}_BarPlot_{prevalence}_Converted.png")
         plt.savefig(plot_file_path)
         plt.close()
 
