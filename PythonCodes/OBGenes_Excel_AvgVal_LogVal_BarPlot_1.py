@@ -3,6 +3,7 @@ import pandas as pd
 import xlsxwriter
 import matplotlib.pyplot as plt
 import math
+import numpy as np
 from tqdm import tqdm  # Import tqdm for the progress bar
 
 # Example usage
@@ -53,30 +54,36 @@ for filename, text_results in results.items():
 
     if "Burden" in filename:
         section = "Burden"
-        if "50" in filename:
-            prevalence = 50
+        if "25" in filename:
+            prevalence = 25
         elif "40" in filename:
             prevalence = 40
+        elif "50" in filename:
+            prevalence = 50
         else:
-            prevalence = 25
+            continue
 
     elif "SKAT" in filename and "SKATO" not in filename:
         section = "SKAT"
-        if "50" in filename:
-            prevalence = 50
+        if "25" in filename:
+            prevalence = 25
         elif "40" in filename:
             prevalence = 40
+        elif "50" in filename:
+            prevalence = 50
         else:
-            prevalence = 25
+            continue
 
     elif "SKATO" in filename:
         section = "SKATO"
-        if "50" in filename:
-            prevalence = 50
+        if "25" in filename:
+            prevalence = 25
         elif "40" in filename:
             prevalence = 40
+        elif "50" in filename:
+            prevalence = 50
         else:
-            prevalence = 25
+            continue
 
     if section:
         if section not in classification:
@@ -102,7 +109,7 @@ for filename, text_results in results.items():
             results[filename].append((text, [average]))
 
 # Save results to a text file
-text_file_path = os.path.join(os.path.expanduser("~"), "Desktop", "emre", "results.txt")
+text_file_path = os.path.join(os.path.expanduser("~"), "Desktop", "emretez2", "results.txt")
 with open(text_file_path, "w") as file:
     for section, prevalence_results in classification.items():
         file.write(f"{section} Section:\n")
@@ -115,7 +122,7 @@ with open(text_file_path, "w") as file:
             file.write("\n")
 
 # Save results to an Excel file
-excel_file_path = os.path.join(os.path.expanduser("~"), "Desktop", "emre", "results.xlsx")
+excel_file_path = os.path.join(os.path.expanduser("~"), "Desktop", "emretez2", "results.xlsx")
 workbook = xlsxwriter.Workbook(excel_file_path)
 for section, prevalence_results in tqdm(classification.items(), desc="Saving results to Excel"):
     for prevalence, text_results in prevalence_results.items():
@@ -139,10 +146,10 @@ for section, prevalence_results in tqdm(classification.items(), desc="Generating
     else:
         continue
 
-    plt.figure()
-    plt.title(f"{bar_plot_title}")
-
     for prevalence, text_results in prevalence_results.items():
+        plt.figure()
+        plt.title(f"{bar_plot_title} (Weights.Beta: {prevalence})")  # Add prevalence to the plot title
+
         texts = []
         averages = []
 
@@ -153,20 +160,20 @@ for section, prevalence_results in tqdm(classification.items(), desc="Generating
 
         plt.bar(texts, averages, label=f"Weights.Beta = c(1, {prevalence})")
 
-    plt.xlabel("Known Obesity Genes")
-    plt.ylabel("Average Value")
-    plt.legend()
+        plt.xlabel("Known Obesity Genes")
+        plt.ylabel("Average Value")
+        plt.legend()
 
-    plt.ylim(0.0, 1.0)  # Set the y-axis range from 0.0 to 1.0
-    plt.yticks([i * 0.1 for i in range(11)])  # Set the y-axis tick locations and labels
+        plt.ylim(0.0, 1.0)
+        plt.yticks([i * 0.1 for i in range(11)])
 
-    # Save the bar plot as an image
-    plot_file_path = os.path.join(os.path.expanduser("~"), "Desktop", "emre", f"{bar_plot_title}_BarPlot_1.png")
-    plt.savefig(plot_file_path)
-    plt.close()
+        # Save the bar plot as an image with prevalence in the file name
+        plot_file_path = os.path.join(os.path.expanduser("~"), "Desktop", "emretez2", f"{bar_plot_title}_BarPlot_{prevalence}_1.png")
+        plt.savefig(plot_file_path)
+        plt.close()
 
 # Convert values in the results.xlsx file to log10 and take the absolute values
-converted_file_path = os.path.join(os.path.expanduser("~"), "Desktop", "emre", "converted_results.xlsx")
+converted_file_path = os.path.join(os.path.expanduser("~"), "Desktop", "emretez2", "converted_results.xlsx")
 converted_workbook = xlsxwriter.Workbook(converted_file_path)
 
 for section, prevalence_results in classification.items():
@@ -183,7 +190,6 @@ for section, prevalence_results in classification.items():
 
 converted_workbook.close()
 
-
 # Generate bar plots from the converted values
 for section, prevalence_results in classification.items():
     if section == "Burden":
@@ -195,16 +201,12 @@ for section, prevalence_results in classification.items():
     else:
         continue
 
-    plt.figure()
-    plt.title(f"{bar_plot_title}")
-
-    # Define color map for prevalences
-    colors = {50: 'orange', 40: 'blue'}
-
     for prevalence, text_results in prevalence_results.items():
-        # Skip the iteration if prevalence is 25
-        if prevalence == 25:
-            continue
+        plt.figure()
+        plt.title(f"{bar_plot_title} (Weights.Beta: {prevalence})")  # Add prevalence to the plot title
+
+        # Define color map for prevalence
+        colors = {25: 'blue', 40: 'orange', 50: 'green'}
 
         texts = []
         converted_averages = []
@@ -220,16 +222,16 @@ for section, prevalence_results in classification.items():
         # Plot the bar plot with the specified color
         plt.bar(texts, converted_averages, label=f"Weights.Beta = c(1, {prevalence})", color=color)
 
-    plt.xlabel("Known Obesity Genes")
-    plt.ylabel("Converted Average Value")
-    plt.legend()
+        plt.xlabel("Known Obesity Genes")
+        plt.ylabel("Converted Average Value")
+        plt.legend()
 
-    plt.ylim(0.0, 6.0)  # Set the y-axis range from 0.0 to 3.0
-    plt.yticks([i * 1 for i in range(7)])  # Set the y-axis tick locations and labels
+        plt.ylim(0.0, 6.0)
+        plt.yticks([i * 1 for i in range(7)])
 
-    # Save the bar plot as an image
-    plot_file_path = os.path.join(os.path.expanduser("~"), "Desktop", "emre", f"{bar_plot_title}_BarPlot_2.png")
-    plt.savefig(plot_file_path)
-    plt.close()
+        # Save the bar plot as an image with prevalence in the file name
+        plot_file_path = os.path.join(os.path.expanduser("~"), "Desktop", "emretez2", f"{bar_plot_title}_BarPlot_{prevalence}_Converted.png")
+        plt.savefig(plot_file_path)
+        plt.close()
 
 print("Results saved successfully!")
