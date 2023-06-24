@@ -49,4 +49,4 @@ Run the script using python Senior-Year-Project/PythonCodes/OBGenes_Excel_AvgVal
 
 The script will search for the specified texts in the Excel files within the provided directory. It will generate results and save them to a text file (results.txt) and an Excel file (results.xlsx). Bar plots will also be generated and saved as images.
 
-### For further questions, contact the author at emrecangunaydin@gmail.com or emrecangunaydin@hotmail.com
+### For further questions, contact the author.
