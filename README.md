@@ -18,7 +18,7 @@ File.SSD: Path to the .SSD file.
 File.Info: Path to the .SSD.info file.
 File.Kin: Path to the emmax.hBN.kinf file.
 Other variables as required.
-Run the script in an R environment using source("RCodes/MainCode.R").
+Run the script in an R environment using the source("RCodes/MainCode.R").
 
 The script will perform SKAT analysis and generate results. QQ plots will be generated and saved as PNG images.
 
