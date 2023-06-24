@@ -1,5 +1,5 @@
 # Senior-Year-Project
-Comparison of Rare Variant Association Tests in Obesity Cohort
+## This is the Graduation Project's ,Comparison of Rare Variant Association Tests in Obesity Cohort, main explanation.
 
 This repository contains Python and R scripts for analyzing obesity-related data. The Python script searches for specific texts in Excel files and generates results, while the R script performs SKAT analysis and generates QQ plots.
 
