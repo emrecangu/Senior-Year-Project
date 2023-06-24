@@ -1,0 +1,79 @@
+SKAT Analysis Documentation
+This documentation provides an explanation of the R code used for performing the SKAT (Sequence Kernel Association Test) analysis. The code involves data preprocessing, SKAT analysis with different methods, writing the results to a file, generating a QQ plot, and saving the plot as an image file.
+
+Table of Contents
+Introduction
+Dependencies
+Input Data
+SKAT Analysis
+Writing Results
+QQ Plot Generation
+Conclusion
+1. Introduction
+The code aims to conduct SKAT analysis on genetic data using different methods such as Burden, SKAT, and SKATO. It utilizes the SKAT package in R to perform the analysis and generate results. The code also includes steps for writing the results to a file and generating a QQ plot to assess the association between p-values and expected p-values under the null hypothesis.
+
+2. Dependencies
+The code requires the following dependencies:
+
+SKAT: The SKAT package in R, which provides functions for performing the SKAT analysis.
+fdrtool: A package for estimating the false discovery rate (FDR) and performing multiple testing corrections.
+Ensure that these dependencies are installed before running the code.
+
+3. Input Data
+The code expects the following input:
+
+File.Bed: The path to the ".bed" file containing genetic data.
+File.Bim: The path to the ".bim" file containing genetic marker information.
+File.Fam: The path to the ".fam" file containing individual information.
+File.SetID: The path to the file containing the set IDs.
+File.SSD: The path to the ".SSD" file.
+File.Info: The path to the ".SSD.info" file.
+File.Kin: The path to the kinship file.
+formula: The formula specifying the relationship between variables for the null model.
+Please provide the appropriate file paths and formula when running the code.
+
+4. SKAT Analysis
+The code performs the SKAT analysis using different methods based on the specified weights and options. It uses the functions provided by the SKAT package.
+
+The SKAT analysis involves the following steps:
+
+Generate the SSD and set ID files using the Generate_SSD_SetID() function.
+Open the SSD and SSD info files using the Open_SSD() function.
+Read the phenotype data from the ".fam" file.
+Define the null model using the SKAT_Null_Model() function.
+Run the SKAT analysis using the SKAT.SSD.All() function, specifying the method, kernel, weights, impute method, and other options.
+5. Writing Results
+The code writes the SKAT analysis results to a tab-delimited text file using the write.table() function.
+
+To write the results, the code:
+
+Assigns the SKAT analysis results to the output.df variable.
+Specifies the file path to write the results by modifying the file argument in the write.table() function.
+Writes the results to the file.
+Please provide the desired file path when running the code.
+
+6. QQ Plot Generation
+The code generates a QQ plot to assess the association between observed p-values and expected p-values under the null hypothesis. It utilizes the fdrtool package and custom functions to generate the plot.
+
+The QQ plot generation involves the following steps:
+
+Install the fdrtool package using the install.packages() function.
+Load the fdrtool and SKAT libraries.
+Calculate the q-values using the fdrtool() function.
+Add the q-values to the SKAT analysis results data frame.
+Order the data frame based on p-values.
+Calculate ranks for associated genes.
+Define the file path to save the QQ plot.
+Generate the QQ plot using the fastqq2() function and save it as a PNG image file using the png() and dev.off() functions.
+Please modify the file path in the code to save the QQ plot in the desired location.
+
+7. Conclusion
+The provided R code allows for the analysis of genetic data using the SKAT method. It performs SKAT analysis with different methods, writes the results to a file, and generates a QQ plot for assessing the association between p-values and expected p-values.
+
+To use the code, ensure that the input data, dependencies, and file paths are correctly specified. Run the code in an R environment with the necessary packages installed.
+
+After executing the code, check the specified file paths for the generated results file and the QQ plot image file.
+
+Please note that the code assumes certain file structures, naming conventions, and data formats. Modify the code as needed to suit your specific use case.
+
+For further assistance, please refer to the documentation of the SKAT package, the fdrtool package, or consult the code's author.
