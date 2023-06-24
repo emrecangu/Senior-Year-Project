@@ -40,7 +40,7 @@ The code expects the following input:
 
 texts_to_search: A list of texts to search for within the Excel files.
 directory_path: The path to the directory containing the Excel files.
-Make sure to update these variables according to your specific use case before running the code.
+Please provide the appropriate values for texts_to_search and directory_path when running the code.
 
 4. Search and Extraction
 The function search_excel_files(texts, directory) is responsible for searching the Excel files within the specified directory and extracting relevant data. It utilizes the os and pandas libraries to read the Excel files and search for specific columns.
@@ -61,8 +61,8 @@ The classification process involves categorizing the data based on the file name
 
 For each file in the results dictionary, the code performs the following steps:
 
-Checks the file name for keywords ("Burden," "SKAT," or "SKATO") to determine the section.
-Determines the prevalence value based on the keywords ("25," "40," or "50").
+Checks if the file name contains the section keywords ("Burden," "SKAT," or "SKATO").
+Extracts the prevalence value based on the keywords ("25," "40," or "50").
 Checks if the section and prevalence are valid.
 Creates the necessary nested dictionaries and lists to store the data.
 The extracted data is then grouped and aggregated in the classification dictionary.
@@ -74,7 +74,7 @@ The text file contains the aggregated data, including the section, prevalence, t
 
 The Excel file utilizes the xlsxwriter library to create worksheets and populate them with the extracted data. For each section and prevalence in the classification dictionary, a new worksheet is created. The data is written to the worksheets using the write() and write_column() methods.
 
-Both output files are saved to the specified directory using the provided file paths.
+Both output files are saved to the specified directory. Please provide the desired file paths when running the code.
 
 7. Bar Plot Generation
 The code generates bar plots to visualize the extracted data. It utilizes the matplotlib library to create the plots.
@@ -97,4 +97,4 @@ After executing the code, check the specified directory for the generated output
 
 Please note that the code provided assumes certain file structures, naming conventions, and data formats. Modify the code as needed to suit your specific use case.
 
-For any further assistance, please consult the code's author or refer to relevant documentation for the used libraries
+For any further assistance, please consult the code's author or refer to relevant documentation for the used libraries.
