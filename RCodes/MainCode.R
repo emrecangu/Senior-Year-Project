@@ -3,7 +3,7 @@ Close_SSD()
 File.Bed <- "Path/to/.bed"
 File.Bim <- "Path/to/.bim"
 File.Fam <- "Path/to/.fam"
-File.SetID <- "Path/to/setID2"
+File.SetID <- "Path/to/setID"
 File.SSD <- "Path/to/.SSD"
 File.Info <- "Path/to/.SSD.info"
 File.Kin <- "Path/to/emmax.hBN.kinf"
