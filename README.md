@@ -3,7 +3,7 @@
 
 This repository contains Python and R scripts for analyzing obesity-related data. The Python script searches for specific texts in Excel files and generates results, while the R script performs SKAT analysis and generates QQ plots.
 
-R Script
+### R Script
 The R script (Senior-Year-Project/RCodes/MainCode.R) performs SKAT analysis and generates QQ plots. Follow the steps below to run the script:
 
 Install the required packages by running install.packages("SKAT") and install.packages("fdrtool") in an R environment.
@@ -22,7 +22,7 @@ Run the script in an R environment using the source("RCodes/MainCode.R").
 
 The script will perform SKAT analysis and generate results. QQ plots will be generated and saved as PNG images.
 
-Python Script
+### Python Script
 The Python script (Senior-Year-Project/PythonCodes/OBGenes_Excel_AvgVal_LogVal_BarPlot_1.py) searches for specific texts in Excel files and generates results. Follow the steps below to run the script:
 
 Install the required dependencies by running pip install pandas xlsxwriter matplotlib numpy tqdm.
@@ -35,4 +35,4 @@ Run the script using python Senior-Year-Project/PythonCodes/OBGenes_Excel_AvgVal
 
 The script will search for the specified texts in the Excel files within the provided directory. It will generate results and save them to a text file (results.txt) and an Excel file (results.xlsx). Bar plots will also be generated and saved as images.
 
-For further questions, contact the writer at emrecangunaydin@gmail.com or emrecangunaydin@hotmail.com
+# For further questions, contact the writer at emrecangunaydin@gmail.com or emrecangunaydin@hotmail.com
