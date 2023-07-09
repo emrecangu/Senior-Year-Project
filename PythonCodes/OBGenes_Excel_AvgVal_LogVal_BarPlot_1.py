@@ -161,7 +161,7 @@ for section, prevalence_results in tqdm(classification.items(), desc="Generating
         plt.bar(texts, averages, label=f"Weights.Beta = c(1, {prevalence})")
 
         plt.xlabel("Known Obesity Genes")
-        plt.ylabel("Average Value")
+        plt.ylabel("Value")
         plt.legend()
 
         plt.ylim(0.0, 1.0)
@@ -223,7 +223,7 @@ for section, prevalence_results in classification.items():
         plt.bar(texts, converted_averages, label=f"Weights.Beta = c(1, {prevalence})", color=color)
 
         plt.xlabel("Known Obesity Genes")
-        plt.ylabel("Converted Average Value")
+        plt.ylabel("Converted Value")
         plt.legend()
 
         plt.ylim(0.0, 6.0)
